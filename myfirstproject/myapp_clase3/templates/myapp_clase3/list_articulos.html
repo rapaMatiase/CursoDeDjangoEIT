@@ -1,0 +1,23 @@
+{% extends 'myapp_clase3/articulo_base.html' %}
+
+{% block title %}
+Lista2
+{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+        {% for articulo in articulos %}
+            <tr>
+                <td> {{articulo.id}} </td>
+                <td> {{articulo.name}} </td>
+                <td> {{articulo.price}} </td>
+                <td> <a href="{% url 'detail_articulos' articulo.id %}">Ver detalle</a> </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

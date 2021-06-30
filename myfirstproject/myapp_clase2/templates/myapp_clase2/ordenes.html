@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3> Mesa de entrada </h3>
+    <ul>
+        {% for orden in listaDeOrdenes.ordenes %}
+            {% if orden.state == 'mesa de entrada' %}
+                <li> {{orden.number}} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <h3> Despachando </h3>
+    <ul>
+        {% for orden in listaDeOrdenes.ordenes %}
+            {% if orden.state == 'despachando' %}
+                <li> {{orden.number}} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <h3> Entregadas </h3>
+    <ul>
+        {% for orden in listaDeOrdenes.ordenes %}
+            {% if orden.state == 'entregada' %}
+                <li> {{orden.number}} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2> Filtrado desde la vista</h2>
+    <h3> Mesa de entrada </h3>
+    <ul>
+        {% for orden in listaOrdenesFiltradas.entregadas %}
+                <li> {{orden.number}} </li>
+        {% endfor %}
+    </ul>
+    <h3> Despachando </h3>
+    <ul>
+        {% for orden in listaOrdenesFiltradas.despachando %}
+                <li> {{orden.number}} </li>
+        {% endfor %}
+    </ul>
+    <h3> Entregadas </h3>
+    <ul>
+        {% for orden in listaOrdenesFiltradas.mesaDeEntrada %}
+                <li> {{orden.number}} </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

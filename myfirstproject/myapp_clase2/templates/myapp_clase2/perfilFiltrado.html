@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3> Activos </h3>
+    <ul>
+        {% for user in activos %}
+        <li> {{user.username}} </li>
+        {% endfor %}
+    </ul>
+    <h3> Inactivos </h3>
+    <ul>
+        {% for user in inactivos %}
+        <li> {{user.username}} </li>
+        {% endfor %}
+    </ul>
+    <h3> Bloqueados </h3>
+    <ul>
+        {% for user in bloqueados %}
+        <li> {{user.username}} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

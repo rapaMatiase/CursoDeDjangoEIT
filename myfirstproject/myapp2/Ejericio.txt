@@ -1,0 +1,4 @@
+Ejericio
+
+Crear una segunda aplicacion llamada myapp2, registrarla y crear una vista de
+bienvenida. HASTA 12.42.

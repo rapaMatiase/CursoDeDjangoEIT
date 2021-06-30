@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> {{username}} </h2>
+    <ul>
+        {% for friend in friends %}
+            {% if friend.state == 'activo' %}
+                <li> {{friend.username}} </li>
+            {% elif friend.state == 'inactivo' %}
+                <li style="color:grey;"> {{friend.username}} </li>
+            {% else %}
+                <li style="color:rgb(235, 0, 0);"> {{friend.username}} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    
+</body>
+</html>

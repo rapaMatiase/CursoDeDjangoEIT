@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <img style="height: 70px;" src="{% static 'myapp_clase3/icon/application.png' %}" alt="">
+    </header>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
+
+<!-- 
+    Agregar algun archivo estatico a esta pag. Puede ser un css,
+    una imagen, un icono.
+    2 minutitos.
+
+ -->

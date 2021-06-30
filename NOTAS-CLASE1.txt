@@ -1,0 +1,25 @@
+# Creando entrono
+
+Creo un entorno virtual para hacer mi proyecto facilmente
+migrable a otras computadoreas. Sea servidores o colaboradores.
+    py -m venv .env
+
+Activo el entrono virtual para comenzar a trabajar.
+    source .env/Scripts/activate (WINDOWS)
+    source .env/bin/activate (LINUX)
+
+# INSTALANDO DJANGO
+
+    pip install django
+
+# CREANDO UN PROYECTO
+
+    django-admin startproject <name>
+
+# CREANDO UNA APP
+
+    python manage.py startapp <name>
+
+Antes de arrancar a trabajar, tengo que hacer dos cosas;
+- Registrarla
+- Agregar las urls
