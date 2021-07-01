@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'myapp_clase5_bonus',
+    'myapp_clase5',
     'myapp_clase4',
     'django.contrib.admin',
     'django.contrib.auth',
