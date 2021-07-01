@@ -14,4 +14,4 @@ En Mac/Linux
 
 Luego instalar las librerias
 
-   pip install > requeirement.txt
+   pip install -r requeirement.txt
