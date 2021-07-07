@@ -1,0 +1,28 @@
+{% extends 'excel/base.html' %}
+
+{% block content %}
+<main class="container d-flex justify-content-center align-items-center h-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">{{field.label}}</label>
+                        {{field}}
+                        <!-- <input type="file" class="form-control-file" id="exampleFormControlFile1"> -->
+                    </div>
+        
+                    
+        
+                    {% endfor %}
+                    <input type="submit" name="Aceptar" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </div>
+        
+
+</main>
+{% endblock %}

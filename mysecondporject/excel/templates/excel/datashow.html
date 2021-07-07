@@ -1,0 +1,40 @@
+{% extends 'excel/base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            {% for header in headers %}
+                <th> {{header}} </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for pais in lista_paices_poblacion %}
+        <tr>
+            <!-- FILA -->
+            <td>
+                <!-- CELDA o COLUMNA -->
+                {{pais.pais}}
+            </td>
+            <td>
+                <!-- CELDA o COLUMNA -->
+                {{pais.poblacion}}
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="Volver" value="Volver">
+
+    <input type="submit" name="Aceptar" value="Enviar">
+
+</form>
+
+{% endblock %}

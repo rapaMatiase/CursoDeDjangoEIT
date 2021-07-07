@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('clase4/', include('myapp_clase4.urls')),
     path('clase5/', include('myapp_clase5.urls')),
-    path('clase5bonus/', include('myapp_clase5_bonus.urls'))
+    path('clase5bonus/', include('myapp_clase5_bonus.urls')),
+    path('excel/', include('excel.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT) 
