@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import MyFilesForm, AcceptForm
-from .models import MyFiles
-from .Convert import ConvertCsvToList, DeleteFile
+from .models import MyFiles, Estadistica, Value
+from .Convert import ConvertCsvToList, DeleteFile, ConvertCsvToListWithoutHeaders
 # Create your views here.
 
 def UpdateView(request):
@@ -44,8 +44,12 @@ def DataShowView(request, file_id):
 
         if 'Aceptar' in request.POST:
             form = AcceptForm(request.POST)
+
             if form.is_valid():
-                return redirect('grafic', file_id=file_id)
+                return redirect(
+                    'data_save', 
+                    file_id=file_id
+                    )
     
 
     return render(
@@ -59,14 +63,21 @@ def DataShowView(request, file_id):
             }
     )
 
-def DataGrafic(request, file_id):
+def SaveData(request, file_id):
     myfile = MyFiles.objects.get(id = file_id)
-    diccionario = ConvertCsvToList(myfile.file)
+    diccionario = ConvertCsvToListWithoutHeaders(myfile.file)
     
+    estadistica = Estadistica(name='Nombre ramdom')
+    estadistica.save()
+    print(diccionario)
+    for pais in diccionario:
+        value = Value(name=pais['pais'], value=pais['poblacion'], estadistica = estadistica)
+        value.save()
+
     return render(
         request,
-        "excel/grafico.html",
+        "excel/save.html",
         context={
-            'file_id' : file_id
+            'file_id' : file_id,
         }
     )
